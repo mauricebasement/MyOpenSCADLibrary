@@ -4,7 +4,7 @@ module ring(r=5,d=1) {
 		circle(r=r-d);
 	}
 }
-module tr_xy(x,y) {
+module tr_xy(x,y=0) {
 	if(y==0) {
 		for(i=[-1,1])for(j=[-1,1])translate([x*i,x*j])children();
 	} else {
