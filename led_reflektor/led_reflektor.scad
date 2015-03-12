@@ -10,7 +10,7 @@ difference() {
 }
 
 // Relektor Abdeckung
-difference() {
+!difference() {
 	square(100,center=true);
 	circle(r=41);
 	tr_xy(x=35.75)circle(r=2.5);
