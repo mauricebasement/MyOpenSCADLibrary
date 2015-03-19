@@ -1,7 +1,7 @@
 $fn=100;
 //Variables
-r1=1;
-r2=1.5;
+r1=1.25;
+r2=1.75;
 len1=32;
 len2=33;
 module stick_hull() {
@@ -11,28 +11,36 @@ module stick_hull() {
 	}
 }
 module stick_cut() {
-	for(i=[0:1.3:10]) {
-		translate([r1+0.1,i])scale(v=[1,1.5])rotate(a=[0,0,45])square(1,center=true);
+	for(i=[0:1.3:2]) {
+		translate([r1+0.1,i])scale(v=[1,1])rotate(a=[0,0,45])square(1.5,center=true);
 	}
 }
-module stick() {
+module stick1(x) {
+		stick_hull();
+		translate([-0.4,x])stick_cut();
+}
+module stick2(x) {
 	difference() {
 		stick_hull();
-		translate([0,22])stick_cut();
+		translate([0,x])stick_cut();
 	}
 }
 module ring() {
 	intersection(){
 		difference() {
-			circle(r=7.5);
+			circle(r=9);
 			circle(r=6);
 		}
-		translate([-3,-11])square(6);
+		translate([-4,-11])square(8);
 	}
 }
-module klammer() {
-	for(i=[0,1])mirror([i,0])translate([-3,0])rotate(a=[0,0,-4])stick();
+module klammer(x=5.1,y=4.5) {
+	translate([-y,0])rotate(a=[0,0,-x])stick1(29);
+    mirror([1,0])translate([-y,0])rotate(a=[0,0,-x])stick2(29);
 	translate([0,6])ring();
 }
 //Extrusion
-linear_extrude(height=20)klammer();
+intersection() {
+    linear_extrude(height=20)klammer();
+    cube([18,100,40],center=true);
+}
