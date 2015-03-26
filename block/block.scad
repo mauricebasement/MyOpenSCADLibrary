@@ -17,13 +17,13 @@ module side_ext() {
             linear_extrude(height=13)side_flat();
             for(i=[3.5,37-3.5])translate([i,3.5,6])cylinder(r=5.4/2,h=16);
         }
-        translate([21.5,8])pipe();
+        translate([37-21.5,13-8])pipe();
     }
 }
 module pipe() {
     cylinder(r=3*holeTolerance,$fn=9,h=2);
     translate([0,0,2])cylinder(r=3*holeTolerance,$fn=6,h=6);
     translate([0,0,8])cylinder(r2=1*holeTolerance,r1=1.75*holeTolerance,h=4);
-    translate([0,0,11])cylinder(r=1*holeTolerance,h=8);
+    translate([0,0,11])cylinder(r=1*holeTolerance,h=14);
 }
 side_ext();
