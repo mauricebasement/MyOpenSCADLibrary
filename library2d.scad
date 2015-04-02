@@ -16,7 +16,7 @@ module tr_xy(x,y=0) {
 module rot_x(x=0,rotation=90,off=0) {
 	for(i=[0:360/rotation-1])rotate(a=[0,0,rotation*i+off])translate([x,0])children();
 }
-//Support for Holowed Models
+//Support for Hollowed Models
 module support(comb=false) {
     intersection() {
         if(comb==false)support_raw();
