@@ -1,9 +1,11 @@
+//Simple Objects
 module ring(r=5,d=1) {
 	difference() {
 		circle(r=r);
 		circle(r=r-d);
 	}
 }
+//Translation Modules
 module tr_xy(x,y=0) {
 	if(y==0) {
 		for(i=[-1,1])for(j=[-1,1])translate([x*i,x*j])children();
@@ -11,6 +13,32 @@ module tr_xy(x,y=0) {
 		for(i=[-1,1])for(j=[-1,1])translate([x*i,y*j])children();
 	}
 }
-module rot_x(x) {
-	for(i=[0:3])rotate(a=[0,0,90*i])translate([x,0])children();
+module rot_x(x=0,rotation=90,off=0) {
+	for(i=[0:360/rotation-1])rotate(a=[0,0,rotation*i+off])translate([x,0])children();
+}
+//Support for Holowed Models
+module support(comb=false) {
+    intersection() {
+        if(comb==false)support_raw();
+        if(comb==true)support_honeycomb();
+        children();
+    }
+}
+module support_raw(x=20,y=20,d=1.1,t=0.15) {
+    for(i=[-1,1])for(j=[0:d:x/2])translate([i*j,0])square([t,y],center=true);
+    for(i=[-1,1])for(j=[0:d:x/2])translate([0,i*j])square([x,t],center=true);
+}
+module support_honeycomb(x=10,y=10,r=0.7,d=0.1,fn=6) {
+    for(k=[-1,1])for(l=[0:2*(r+r*sin(30)-d):x]){
+        for(i=[1,-1])for(j=[0:2*r*cos(30)-d:y]) {
+            translate([k*l,i*j])comb(r,d,fn);
+            translate([k*(l+r+r*sin(30)-d),i*(j+cos(30)*r-0.5*d)])comb(r,d,fn);
+        }
+    }
+}
+module comb(r,d,fn) {
+    difference() {
+        circle(r=r,$fn=fn);
+        circle(r=r-d,$fn=fn);
+    }
 }
