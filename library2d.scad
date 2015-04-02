@@ -36,6 +36,14 @@ module support_honeycomb(x=10,y=10,r=0.7,d=0.1,fn=6) {
         }
     }
 }
+module honeycomb_drainholes(x=10,y=10,r=0.7,d=0.1,fn=6,o1=1,o2=1,ra=0.25) {
+    for(k=[-1,1])for(l=[0:(2*(r+r*sin(30)-d))*o1:x]){
+        for(i=[1,-1])for(j=[0:(2*r*cos(30)-d)*o2:y]) {
+            translate([k*l,i*j])circle(r=ra);
+            translate([k*(l+r+r*sin(30)-d),i*(j+cos(30)*r-0.5*d)])circle(r=ra);
+        }
+    }
+}
 module comb(r,d,fn) {
     difference() {
         circle(r=r,$fn=fn);
