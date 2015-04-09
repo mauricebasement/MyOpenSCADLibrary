@@ -50,3 +50,9 @@ module comb(r,d,fn) {
         circle(r=r-d,$fn=fn);
     }
 }
+module negativ_sq() {
+    difference() {
+        hull()children();
+        children();
+    }
+}
