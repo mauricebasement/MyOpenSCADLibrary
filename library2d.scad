@@ -12,6 +12,9 @@ module round_square(x,y=0,r=0) {
         hull()tr_xy(x=x/2-r,y=y/2-r)circle(r=r);
     }
 }
+module slot(x,r,o)  {
+    hull()for(i=[-1,1])rotate(o)translate([x/2*i,0])circle(r=r);
+}
 //Translation Modules
 module tr_xy(x,y=0) {
 	if(y==0) {
