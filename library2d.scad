@@ -5,6 +5,13 @@ module ring(r=5,d=1) {
 		circle(r=r-d);
 	}
 }
+module round_square(x,y=0,r=0) {
+    if(y==0) {
+        hull()tr_xy(x=x/2-r)circle(r=r);
+    } else {
+        hull()tr_xy(x=x/2-r,y=y/2-r)circle(r=r);
+    }
+}
 //Translation Modules
 module tr_xy(x,y=0) {
 	if(y==0) {
