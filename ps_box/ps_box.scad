@@ -13,7 +13,6 @@ module back(front=false) {
             for(i=[-1,1])translate([i*15.5,2.5])circle(r=1);
         }
         if(front==true){
-            circle(r=1.5);
             translate([0,17])square([5,2],center=true);
         }   
         for(i=[-1,1])for(j=[-20,20,-10,10])translate([i*24,j])square(3,center=true);
@@ -39,7 +38,7 @@ module side() {
     }
 }    
 
-front();
+!front();
 back();
 top();
 bottom();
