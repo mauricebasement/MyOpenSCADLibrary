@@ -48,12 +48,14 @@ module pipeHolder() {
         }
     }
 }
+//Assembly
 module assembly() {
     for(i=[0:3])translate([0,0,i*(outerDiameter+10)-82.5])sealedPipe();
     for(i=[-3:3])translate([0,i*(tubeLenght/6-5),0])rotate([90,0,0])extrude()pipeHolder();
 }
 assembly();
-//Heleper Modules
+
+//Helper Modules
 module extrude(h=5) {
     linear_extrude(height=h)children();
 }
