@@ -32,8 +32,8 @@ module seal() {
             translate([0,0,3])cylinder(r1=20,r2=21,h=7);
         }
         union() {
-            cylinder(r=5.5,h=3);
-            translate([0,0,3])cylinder(r1=5.5,r2=6.5,h=7);
+            translate([12,0])cylinder(r=5.5,h=3);
+            translate([12,0,3])cylinder(r1=5.5,r2=6.5,h=7);
         }
     }
 }
@@ -51,7 +51,7 @@ module sealedPipe(printedSeal=true) {
         }
         if(printedSeal==true) {
             translate([0,0,5])rotate([0,180,0])seal();
-            translate([0,0,tubeLenght-5])mirror([0,0,1])rotate([0,180,0])seal();
+            translate([0,0,tubeLenght-5])mirror([0,0,1])rotate([0,180,0])!seal();
         }
     }
 }
