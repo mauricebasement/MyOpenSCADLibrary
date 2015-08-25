@@ -1,6 +1,6 @@
 module tubeRaw() {
     sphere(r=58/2);
-    cylinder(r=58/2,h=500-58/2);
+    cylinder(r=62/2,h=500-58/2);
 }
 module tube(precise=false) {
     translate([0,0,58/2])difference() {
@@ -23,13 +23,13 @@ module bottom(y=100) {
 
 module top(y=100) {
     translate([0,0,450])linear_extrude(height=5)
-    difference(){
+    !difference(){
         translate([0,-y/2])square([480,y]);
         projection(cut=true)translate([0,0,-58/2])tubeArray();
     }
 }
 module side() {
-    rotate([0,90,0])linear_extrude(height=5)!difference() {
+    rotate([0,90,0])linear_extrude(height=5)difference() {
         square([500,120]);
         for(i=[10,485])translate([i,10])square([5,100]);
     }
