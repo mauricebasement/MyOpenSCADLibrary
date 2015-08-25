@@ -29,12 +29,13 @@ module top(y=100) {
     }
 }
 module side() {
-    rotate([0,90,0])linear_extrude(height=5)difference() {
-        square([460,100]);
+    rotate([0,90,0])linear_extrude(height=5)!difference() {
+        square([500,120]);
+        for(i=[10,485])translate([i,10])square([5,100]);
     }
 }
     
 tubeArray();
 bottom();
 top();
-*side();
+side();
