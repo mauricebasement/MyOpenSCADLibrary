@@ -10,6 +10,6 @@ difference() {
     holes();
 }
 !difference() {
-    hull()holes(s=1.6);
+    hull()holes(s=2);
     holes();
 }
