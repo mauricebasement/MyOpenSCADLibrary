@@ -9,4 +9,4 @@ module sensor(side=12) {
         for(i=[-1,1])translate([0,3*i])cylinder(r=1,h=side);
     }
 }
-!sensor();
+sensor();
