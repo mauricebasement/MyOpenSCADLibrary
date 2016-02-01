@@ -16,17 +16,17 @@ module button() {
 module case() {
     switchTr()rotate([90,0,90])switchCase();
     difference() {
-        cube([45,60,50],center=true);
+        cube([49,64,50],center=true);
         cylinder(d=29,h=80,center=true);
         translate([0,0,-2])cube([41.8,56.8,46],center=true);
         for(i=[-1,1])translate([0,i*25,-2])cylinder(r=1,h=50);
-        switchTr()scale(1.001,1,1)hull()rotate([90,0,90])switchCase();
+        switchTr()scale(1.001,0.99,0.99)hull()rotate([90,0,90])switchCase();
     }
 }
 module switchTr() {
-    for(i=[-1,1])translate([19,i*22,14.50001])children();
+    for(i=[-1,1])translate([21,i*22,14.50001])children();
 }
 
 
-*button();
-case();
+button();
+!case();
