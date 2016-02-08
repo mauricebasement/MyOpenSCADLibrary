@@ -1,7 +1,7 @@
 $fn=50;
 
 module cut() {
-    translate([-3,0])scale(0.95)linear_extrude(height=6) {
+    translate([-3,0])scale(1.05)linear_extrude(height=6) {
         difference() {
             translate([3,0])circle(r=3);
             square([3,6],center=true);
