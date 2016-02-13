@@ -12,8 +12,8 @@ module plattenHalter() {
     }    
 }
 //Verbidnungsstück
-rRohr2=10;
-rRohr3=8;
+rRohr2=11;
+rRohr3=14;
 length=100;
 wall=10;
 distance=28;
@@ -33,8 +33,8 @@ module verbindung() {
 }
 
 
-*plattenHalter();
-verbindung();
+plattenHalter();
+!verbindung();
 
 //Helper Modules
 module platte() {
