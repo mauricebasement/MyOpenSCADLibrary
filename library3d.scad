@@ -1,9 +1,11 @@
+//Objects
 module ring(r=5,d=1,h=2) {
 	difference() {
 		cylinder(r=r,h=h);
 		cylinder(r=r-d,h=h);
 	}
 }
+//Translations //expand for z axis
 module tr_xy(x,y=0) {
 	if(y==0) {
 		for(i=[-1,1])for(j=[-1,1])translate([x*i,x*j])children();
