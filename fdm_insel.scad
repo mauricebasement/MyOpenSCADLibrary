@@ -1,29 +1,29 @@
 //FDM Insel
 //Halter an Platte
-rRohr = 14;
+rRohr = 14*1.1;
 module plattenHalter() {
     difference() {
-        linear_extrude(height=80, scale=0.2)square(150,center=true);
-        cylinder(r=rRohr,h=101);
-        tr_xy(x=64) {
-            cylinder(r=2.5,h=25);
-            translate([0,0,10])cylinder(r=7,h=25);
+        linear_extrude(height=50, scale=0.5)square(80,center=true);
+        cylinder(r=rRohr,h=51);
+        tr_xy(x=30) {
+            cylinder(r=5,h=25);
+            translate([0,0,10])cylinder(r=10,h=40);
         }
     }    
 }
 //Verbidnungsstück
-rRohr2=11;
-rRohr3=14;
+rRohr2=12*1.1;
+rRohr3=14*1.1;
 length=100;
 wall=10;
 distance=28;
 module verbindung() {
-    translate([135/2-25,105/2-25])linear_extrude(height=5)platte();
+    *translate([135/2-25,105/2-25])linear_extrude(height=5)platte();
     difference() {
         hull() {
             cube([2*rRohr+wall,2*rRohr+wall,length]);
-            cube([2*rRohr2+wall,80,2*rRohr2+wall]);
-            cube([110,2*rRohr3+wall,2*rRohr3+wall]);
+            cube([2*rRohr2+wall,length,2*rRohr2+wall]);
+            cube([length,2*rRohr3+wall,2*rRohr3+wall]);
         }
         translate([rRohr+wall/2,rRohr+wall/2],0)cylinder(h=length,r=rRohr);
         translate([rRohr2+wall/2,distance,rRohr2+wall/2])rotate([-90,0,0])cylinder(h=length,r=rRohr2);
