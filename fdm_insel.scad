@@ -33,8 +33,8 @@ module verbindung() {
 }
 
 
-plattenHalter();
-!verbindung();
+!plattenHalter();
+verbindung();
 
 //Helper Modules
 module platte() {
