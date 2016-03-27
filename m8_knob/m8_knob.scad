@@ -7,8 +7,8 @@ module bottom() {
 }
 module top() {
     translate([0,0,8])difference() {
-        cylinder(r=10,h=15);
-        translate([0,0,9])cylinder(r=15.5/2,h=7,$fn=6);
+        cylinder(r=10,h=25);
+        translate([0,0,19])cylinder(r=15.5/2,h=7,$fn=6);
     }
 }
 difference() {
@@ -16,5 +16,5 @@ difference() {
         top();
         bottom();
     }
-    translate([0,0,3])cylinder(r=4.5,h=20);
+    translate([0,0,3])cylinder(r=4.5,h=30);
 }
