@@ -20,6 +20,6 @@ module assembly() {
 }
 
 difference() {
-    translate([32.5/2,0,20])cube([32.5,65,60],center=true);
+    translate([32.5/2,0,15])cube([32.5,65,50],center=true);
     assembly();
 }
