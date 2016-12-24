@@ -13,7 +13,7 @@ style = 0;  //1: Straight Edges 2:Round Edges
 //Implement?   edgeFactor = 1;
 
 //Variables
-$fn=1000;
+$fn=100;
 outerRadius = radius + thickness;
 length = sum(waveDistances,len(waveDistances)-1,0);
 factor = perimeter(radius+thickness*1.5)/perimeter(radius);
