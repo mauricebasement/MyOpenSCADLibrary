@@ -3,9 +3,9 @@ Simple Script to generate Compartments for a rectangular container.
 */
 
 //Settings
-xNr = 5;
+xNr = 4;
 yNr = 6;
-xD = 330;
+xD = 381;
 yD = 850;
 depth = 350;
 thickness = 6;
@@ -33,9 +33,9 @@ module render() {
 }    
 //Export
 module export() {
-    for(i=[end:yNr-end])translate([yD+margin,i*(depth+margin),0])!projection()verticalPlane();
+    for(i=[end:yNr-end])translate([yD+margin,i*(depth+margin),0])projection()verticalPlane();
     for(i=[end:xNr-end])translate([0,i*(depth+margin)])projection()horizontalPlane();
 }
 
-render();
+!render();
 export();
